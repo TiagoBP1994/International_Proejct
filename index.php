@@ -32,7 +32,34 @@ and open the template in the editor.
         include './Include/header.inc.php'; 
         ?>
         
+        <?php
+        // Retrieving Images from Database for Display 
+            $sql  = "select color, dimples, noinstock";
+            $sql .= " from golfballs";
+            $sql .= " order by color, dimples";
+            $r = $dbh->query($sql);
+            $a = array();
+            while ($out = $r->fetch()) {
+                $g = new GolfBall();
+                $g->setColor($out['color']);
+                $g->setDimples($out['dimples']);
+                $g->addStock($out['noinstock']);
+                array_push($a, $g);
+            }
+        ?>
+        
             <div class="slider-for">
+                
+                <?php
+                    //The Loop to print each image to the slider
+                    printf("    <header><h1>%s</h1></header>\n", $title);            // put your code here
+                    print("    <table>\n");
+                    foreach ($a as $gb) {
+                        print($gb);
+                    }
+                    print("    </table>\n");
+                ?>
+                
                 <div>your content</div>
                 <div>your content</div>
                 <div>your content</div>
