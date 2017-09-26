@@ -28,20 +28,31 @@ and open the template in the editor.
         // Includes the header with navigation
         include './Include/header.inc.php'; 
         ?>
+        <?php
         
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <img src="..." alt="...">
-                <div class="caption">
-                  <h3>Thumbnail label</h3>
-                  <p>...</p>
-                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
+        $sql  = "select caption, imagedata, mimetype, story, tags, credit";
+        $sql .= " from photo";
+        $r = $dbh->query($sql);
         
+        echo'<div class="row">';
+            // Loop Starts here
+            echo'<div class="col-sm-6 col-md-4">';
+              echo'<div class="thumbnail">';
+                // Img here
+                echo'<img src="..." alt="...">';
+                echo'<div class="caption">';
+                    //Caption here
+                  echo'<h3>Thumbnail label</h3>';
+                    // Story, tags, credit here
+                  echo'<p>...</p>';
+                  // Create vote function within buttons here
+                  echo'<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>';
+                echo'</div>';
+              echo'</div>';
+            echo'</div>';
+            // Loop ends here
+          echo'</div>';
+        ?>
         <?php 
         // Includes the footer
         include './Include/footer.inc.php'; 
