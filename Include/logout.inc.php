@@ -8,9 +8,9 @@
 error_reporting(E_ALL);
 
 session_start();
-    require_once './Include/authentication.inc.php';
+    require_once 'authentication.inc.php';
     
     if (Authentication::isAuthenticated()) {
         Authentication::Logout();
     }
-    header('Location: ./index.php?notAuth');
+    header('Location: ../index.php?notAuth');
