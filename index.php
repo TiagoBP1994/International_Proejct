@@ -35,22 +35,24 @@ and open the template in the editor.
         $r = $dbh->query($sql);
         
         echo'<div class="row">';
-            // Loop Starts here
+        foreach ($r as $sql){
             echo'<div class="col-sm-6 col-md-4">';
               echo'<div class="thumbnail">';
                 // Img here
-                echo'<img src="..." alt="...">';
+                echo'<img src="'/*.$sql['imagedata']*/.'" alt="...">';
                 echo'<div class="caption">';
                     //Caption here
-                  echo'<h3>Thumbnail label</h3>';
+                  echo'<h3>'.$sql['caption'].'</h3>';
                     // Story, tags, credit here
-                  echo'<p>...</p>';
+                  echo'<p>'.$sql['story'].'</p>';
+                  echo'<p>Author: '.$sql['credit'].'</p>';
+                  echo'<p>Tags: '.$sql['tags'].'</p>';
                   // Create vote function within buttons here
-                  echo'<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>';
+                  echo'<p><a href="#" class="btn btn-primary" role="button">Vote</a></p>';
                 echo'</div>';
               echo'</div>';
             echo'</div>';
-            // Loop ends here
+            }
           echo'</div>';
         ?>
         <?php 
