@@ -7,8 +7,18 @@
 body{
     color: #333;
     font: 18px 'Open Sans', Arial, sans-serif;
-    
-    
+    width:100%;
+}
+
+#outerWrapper{
+    width:100%;
+}
+
+#content {
+    max-width: 1024px;
+    margin:0 auto;
+    padding-left: 15px;
+    padding-left: 15px;
 }
 
 .container {
@@ -144,7 +154,6 @@ span {
 
 p {
     text-align: center;
-    color: #ffffff;
     margin: 0px 0px 50px 0px;
 }
 
@@ -280,6 +289,7 @@ textarea {
     display: flex;
     justify-content: center;
     position: fixed;
+    top: 150px;
 }
 .appear {
     display:block!important;

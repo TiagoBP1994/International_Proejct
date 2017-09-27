@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Kolding Gallery</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-    </head>
-    <body>
         <div class="blur_filter"><!-- KACIA -->
             <header class="header">
 
@@ -14,8 +5,8 @@
             <div class="container">
                 <nav class="nav">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Upload Photo</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="upload_image.php">Upload Photo</a></li>
                         <li><a href="#"><div class="btn">Log In / Register</div></a></li>
                     </ul>
                 </nav>
@@ -126,8 +117,6 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
             </div> <p class="close">X</p>
         </div> 
 
-
-    </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
     <script>
@@ -150,4 +139,4 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
 
     </script>
 
-</html>
+
