@@ -7,6 +7,8 @@
 
 error_reporting(E_ALL);
 
+// For some reason, the "if" function below doesnt seem to work.
+
     if (!(
           (isset($_POST['caption']) && $_POST['caption'] != '')
             && (isset($_POST['credit']) && $_POST['credit'] != '')
@@ -15,6 +17,7 @@ error_reporting(E_ALL);
             && (isset($_FILES['img']) && $_FILES['img']['size'] > 0)
         )) {
         header('Location: ../upload_image.php?error');
+        echo "Please fill in all fields!";
     }
     
     require_once 'DbP.inc.php';
@@ -58,3 +61,5 @@ error_reporting(E_ALL);
     $sql = 'commit;';
     $dbh->query($sql);
     header('Location: ../upload_image.php?inserted');
+    
+    echo "Thank you for your contribution!";

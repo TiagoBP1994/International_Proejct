@@ -1,70 +1,116 @@
-<?php
-
-//
-// Author : Jesper Uth Krab
-// Made On : Sep 27, 2017 3:33:33 PM  
-//
-
-error_reporting(E_ALL);
-
-session_start();
-    require_once './Include/DbP.inc.php';
-    require_once './Include/DbH.inc.php';
-    require_once './Include/Authentication.inc.php';
-    $auth = FALSE;
-    $err = '';
-
-    if (!Authentication::isAuthenticated() 
-          && Authentication::areCookiesEnabled()) { 
-        if (isset($_POST['user']) && isset($_POST['pwd'])) {
-            $auth = Authentication::authenticate($_POST['user'], $_POST['pwd']);
-            if (!Authentication::isAuthenticated()) {
-                $err = 'Error at login, please retry';
-            }
-        }
-    }
-
-    if (Authentication::isAuthenticated()) {  // am I logged on?
-        header("Location: ./index.php");
-    }                               
-?>
-<!doctype html>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>Shop Login</title>
+        <?php
+        // Copy this code to any page that needs database connection.
+        // Remember the surrounding PHP tags!
+        require_once './Include/DbP.inc.php';
+        require_once './Include/DbH.inc.php';
+        $dbh = DbH::getDbH();
+        ?>
+        
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <title>Gallery</title>
     </head>
     <body>
-        <main id="mydiv">
-          <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-            <table id="login">
-                <caption>Login</caption>
-                <tr>
-                  <td>Userid:</td><td><input type="text" name="user"/></td>
-                </tr>
-                <tr>
-                  <td>Pwd: </td><td><input type="password" name="pwd"/></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    <input type="submit" value="Login"/>&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="Register" 
-                          onclick="window.location='register.php'"/>
-                  </td>
-                </tr>
-<?php
-                if ($err != '') {
-                  printf("<tr><td colspan='2' class='err'>%s.</td></tr>\n", $err);
-                }
-                if (!Authentication::areCookiesEnabled()) {
-                  print("<tr><td colspan='2' class='err'>Cookies 
-                      from this domain must be 
-                      enabled before attempting login.</td></tr>");
-                }
-?>
-          </table>
-        </form>
-      </main>
-  </body>
+        
+        <a href="Include/logout.inc.php">Logout</a>
+
+        <div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab"><a href="#signup">Sign Up</a></li>
+        <li class="tab active"><a href="#login">Log In</a></li>
+      </ul>
+      
+      <div class="tab-content">
+
+         <div id="login">   
+          <h1>Welcome Back!</h1>
+          
+          <form action="./Include/login.inc.php" method="post" autocomplete="off">
+          
+            <div class="field-wrap">
+            <label>
+              First Name<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" name="user"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Password<span class="req">*</span>
+            </label>
+            <input type="password" required autocomplete="off" name="pwd"/>
+          </div>
+                 
+          <button class="button button-block" name="login" />Log In</button>
+          
+          </form>
+
+        </div>
+          
+        <div id="signup">   
+          <h1>Sign Up for Free</h1>
+          
+          <form action="./Include/register.inc.php" method="post" autocomplete="off">
+          
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>
+                First Name<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" name='firstname' />
+            </div>
+        
+            <div class="field-wrap">
+              <label>
+                Last Name<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" name='lastname' />
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" required autocomplete="off" name='email' />
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Set A Password<span class="req">*</span>
+            </label>
+            <input type="password" required autocomplete="off" name='pw1'/>
+          </div>
+              
+          <div class="field-wrap">
+            <label>
+                Repeat Password<span class="req">*</span>
+            </label>
+                  <input type="password" name="pwd2" required/>
+          </div>
+          
+          <button type="submit" class="button button-block" name="register" />Register</button>
+          
+          </form>
+
+        </div>  
+        
+      </div>
+        </div>
+        
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="./js/login.js"></script>
+        
+    </body>
 </html>

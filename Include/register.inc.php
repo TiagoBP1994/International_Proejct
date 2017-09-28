@@ -27,4 +27,4 @@ error_reporting(E_ALL);
     } catch(PDOException $e) {
       die("Posting failed. Call a friend.<br/>".$e->getMessage());
     }
-    header('Location: ../register.php?userinserted');
+    header('Location: ../index.php?userinserted');
