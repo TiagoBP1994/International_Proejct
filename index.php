@@ -35,13 +35,13 @@ and open the template in the editor.
             <div class="container">
                 <nav class="nav">
             <ul class="nav">
-                <li><a href="./index.php">Home</a></li>
+                <li><a href="./index.php" style="float: left;">Home</a></li>
                     <?php
                         if (!Authentication::isAuthenticated()) {
-                            printf("%16s<li><a href='#'><div class='btn'>Log In / Register</div></a></li>\n", " ");
+                            printf("%16s<li><a href='#' style='float: right;'><div class='btn'>Log In / Register</div></a></li>\n", " ");
                         } else { 
-                            printf("%16s<li><a href='upload_image.php'>Upload Image</a></li>\n", " ");
-                            printf("%16s<li><a href='./Include/logout.inc.php'>Logout</a></li>\n", " ");
+                            printf("%16s<li><a href='upload_image.php' style='float: right;'>Upload Image</a></li>\n", " ");
+                            printf("%16s<li><a href='./Include/logout.inc.php' style='float: right;'>Logout</a></li>\n", " ");
                             
                         }
                     ?>
@@ -61,14 +61,18 @@ and open the template in the editor.
         echo'<div id="content" class="row blur_filter">';
         foreach ($r as $sql){
             echo'<div class="col-sm-6 col-md-6">';
-              echo'<div class="thumbnail" style="height:600px;">';
+              echo'<div class="thumbnail" style="height: auto; ">';
                 // Img here
                 echo'<img src="getImage.php?photoid='.$sql['photoid'].'" style="max-height: 20em;">';
                 echo'<div class="caption">';
                     //Caption here
-                  echo'<p>'.$sql['caption'].', '.$sql['story'].', '.$sql['credit'].', '.$sql['tags'].'</p>';
+                if (Authentication::isAuthenticated()) {
+                  echo'<p>Title: '.$sql['caption'].'</p>';
+                  echo'<p>Story and Tags: '.$sql['story'].', '.$sql['tags'].'</p>';
+                  echo'<p>Author: '.$sql['credit'].'</p>';
                   // Create vote function within buttons here
                   echo'<p><a href="#" class="btn btn-primary" role="button">Vote</a></p>';
+                  }
                 echo'</div>';
               echo'</div>';
             echo'</div>';
