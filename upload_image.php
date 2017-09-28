@@ -57,28 +57,28 @@ error_reporting(E_ALL);
               enctype="multipart/form-data">
                 <p class="col-md-6">
                     <label for='caption' style="color:#000; position: inherit;">Caption</label><br/>
-                    <input type='text' id='caption' name='caption' style="color:#000;"/>
+                    <input type='text' id='caption' name='caption' style="color:#000;" required/>
                 </p>
                
                 <div class="col-md-6"></div>
                 <p class="col-md-6">
                     <label for='credit' style="color:#000; position: inherit;">Credit</label><br/>
-                    <input type='text' id='credit' name='credit' style="color:#000;"/>
+                    <input type='text' id='credit' name='credit' style="color:#000;" required/>
                 </p>
                 <p class="col-md-6">
                     <label for='story' style="color:#000; position: inherit;">Story</label><br/>
-                    <input type='text' id='story' name='story' style="color:#000;"/>
+                    <input type='text' id='story' name='story' style="color:#000;" required/>
                 </p>
                 <div class="col-md-6"></div>
                 <p class="col-md-6">
                     <label for='tags' style="color:#000; position: inherit;">Tags</label><br/>
-                    <input type='text' id='tags' name='tags' style="color:#000;"/>
+                    <input type='text' id='tags' name='tags' style="color:#000;" required/>
                 </p>
                 <div class="col-md-6"></div>
                 <p class="col-md-12">
                     <input type="hidden" name="MAX_FILE_SIZE" value="5242880"/>
                     <label for='bild' style="color:#000; position: inherit;">Select Image File</label><br/>
-                    <input type='file' id='bild' name='img' style="color:#000;"/>
+                    <input type='file' id='bild' name='img' style="color:#000;" required/>
                 </p>
             <p>
                 <input type='submit' class="col-md-6 submit"  name='butt' value='Submit' style="color:#000"/>
@@ -104,6 +104,7 @@ error_reporting(E_ALL);
                 <ul class="tab-group">
                     <li class="tab"><a href="#signup">Sign Up</a></li>
                     <li class="tab active"><a href="#login" >Log In</a></li>
+                    <li><a href="Include/logout.inc.php">Logout</a></li>
                 </ul>
 
                 <div class="tab-content">

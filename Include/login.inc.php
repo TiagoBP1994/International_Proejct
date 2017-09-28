@@ -25,7 +25,7 @@ session_start();
     }
 
     if (Authentication::isAuthenticated()) {  // am I logged on?
-        header("Location: ../index.php");
+        header("Location: ../index.php?authenticated");
     }                               
 
                 if ($err != '') {
