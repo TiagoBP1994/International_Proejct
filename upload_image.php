@@ -12,6 +12,7 @@ error_reporting(E_ALL);
 <html>
     <head>
         <?php
+        require_once './Include/authentication.inc.php';
         // Copy this code to any page that needs database connection.
         // Remember the surrounding PHP tags!
         require_once './Include/DbP.inc.php';
@@ -37,11 +38,17 @@ error_reporting(E_ALL);
             </header>
             <div class="container">
                 <nav class="nav">
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="upload_image.php">Upload Photo</a></li>
-                        <li><a href="#"><div class="btn">Log In / Register</div></a></li>
-                    </ul>
+                                <ul class="nav">
+                <li><a href="./index.php">Home</a></li>
+                    <?php
+                        if (!Authentication::isAuthenticated()) {
+                            printf("%16s<li><a href='#'><div class='btn'>Log In / Register</div></a></li>\n", " ");
+                        } else { 
+                            printf("%16s<li><a href='logout.inc.php'>Logout</a></li>\n", " ");
+                            printf("%16s<li><a href='upload_image.php'>Upload Image</a></li>\n", " ");
+                        }
+                    ?>
+            </ul>
                 </nav>
             </div>
         </div>

@@ -64,11 +64,7 @@ and open the template in the editor.
                 echo'<img src="getImage.php?photoid='.$sql['photoid'].'" style="max-height: 20em;">';
                 echo'<div class="caption">';
                     //Caption here
-                  echo'<h3>'.$sql['caption'].'</h3>';
-                    // Story, tags, credit here
-                  echo'<p>'.$sql['story'].'</p>';
-                  echo'<p>Author: '.$sql['credit'].'</p>';
-                  echo'<p>Tags: '.$sql['tags'].'</p>';
+                  echo'<p>'.$sql['caption'].', '.$sql['story'].', '.$sql['credit'].', '.$sql['tags'].'</p>';
                   // Create vote function within buttons here
                   echo'<p><a href="#" class="btn btn-primary" role="button">Vote</a></p>';
                 echo'</div>';
