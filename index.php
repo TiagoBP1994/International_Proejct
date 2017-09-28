@@ -35,7 +35,7 @@ and open the template in the editor.
                     <ul>
                         <li><a href="index.php">Home</a></li>
                         <li><a href="upload_image.php">Upload Photo</a></li>
-                        <li><a href="#"><div class="btn">Log In / Register</div></a></li>
+                        <li><a href="login.php"><div class="btn">Log In / Register</div></a></li>
                     </ul>
                 </nav>
             </div>
@@ -51,8 +51,8 @@ and open the template in the editor.
         
         echo'<div id="content" class="row blur_filter">';
         foreach ($r as $sql){
-            echo'<div class="col-sm-6 col-md-4">';
-              echo'<div class="thumbnail" style="height:700px;">';
+            echo'<div class="col-sm-6 col-md-6">';
+              echo'<div class="thumbnail" style="height:600px;">';
                 // Img here
                 echo'<img src="getImage.php?photoid='.$sql['photoid'].'" style="max-height: 20em;">';
                 echo'<div class="caption">';

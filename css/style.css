@@ -8,10 +8,13 @@ body{
     color: #333;
     font: 18px 'Open Sans', Arial, sans-serif;
     width:100%;
+    background: url('http://p1.pichost.me/i/41/1645938.jpg');
+    
 }
 
 #outerWrapper{
     width:100%;
+    margin-top: 100px;
 }
 
 #content {
@@ -19,7 +22,10 @@ body{
     margin:0 auto;
     padding-left: 15px;
     padding-left: 15px;
+    
+      
 }
+
 
 .container {
     max-width: 1024px;
@@ -61,14 +67,11 @@ html {
     overflow-y: scroll;
 }
 
-body {
-    background: #ffffff; /* #c1bdba */
-    font-family: 'Titillium Web', sans-serif;
-}
+
 
 a {
     text-decoration: none;
-    color: #1ab188;
+    color: #375857;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
@@ -135,9 +138,10 @@ a:hover {
 
 h1 {
     text-align: center;
-    color: #ffffff;
-    font-weight: 300;
+    color: white;
+    font-weight: 200;
     margin: 0 0 40px;
+    
 }
 
 h2 {
@@ -153,8 +157,9 @@ span {
 }
 
 p {
-    text-align: center;
-    margin: 0px 0px 50px 0px;
+    text-align: inherit;
+    
+    
 }
 
 div.info {
@@ -296,10 +301,50 @@ textarea {
 
 }
 
+.thumbnail{
+    border: none;
+    background: rgba(255,255,255, 0.5);
+    border-radius: 0px;
+    position: relative;
+    
+}
+
 .blur-filter {
     -webkit-filter: blur(2px);
     -moz-filter: blur(2px);
     -o-filter: blur(2px);
     -ms-filter: blur(2px);
     filter: blur(2px);
+}
+
+.thumbnail .caption {
+    padding: 9px;
+    color: #333;
+    text-align: center;  
+    
+}
+
+input#caption a:hover {
+    background: white;
+    color: white;
+}
+
+.submit{
+    background-color: rgba(255, 255, 255, 0.7);;
+    margin-top: 31px;
+   border-radius: 5px;
+       width: 100px;
+     border-color:white;
+     border: 30px;
+    
+}
+
+.panel.panel-default{
+    margin-top: 200px;
+    background: url('http://p1.pichost.me/i/41/1645938.jpg');
+    color: white;
+   
+}
+#caption,#credit,#story,#tags,#bild{
+    background-color: rgba(255,255,255, 0.7);
 }

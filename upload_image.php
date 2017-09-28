@@ -50,34 +50,44 @@ error_reporting(E_ALL);
             <div id="outerWrapper"><!-- KACIA -->
         <div id="content" class="row blur_filter">
         <h1>Upload Image</h1>
-        <form action="./Include/input_image.inc.php" 
+        <div class="container">
+            <div class="row">
+            <form action="./Include/input_image.inc.php" 
               method="post" 
               enctype="multipart/form-data">
-                <p>
+                <p class="col-md-6">
                     <label for='caption' style="color:#000; position: inherit;">Caption</label><br/>
                     <input type='text' id='caption' name='caption' style="color:#000;"/>
                 </p>
-                <p>
+               
+                <div class="col-md-6"></div>
+                <p class="col-md-6">
                     <label for='credit' style="color:#000; position: inherit;">Credit</label><br/>
                     <input type='text' id='credit' name='credit' style="color:#000;"/>
                 </p>
-                <p>
+                <p class="col-md-6">
                     <label for='story' style="color:#000; position: inherit;">Story</label><br/>
                     <input type='text' id='story' name='story' style="color:#000;"/>
                 </p>
-                <p>
+                <div class="col-md-6"></div>
+                <p class="col-md-6">
                     <label for='tags' style="color:#000; position: inherit;">Tags</label><br/>
                     <input type='text' id='tags' name='tags' style="color:#000;"/>
                 </p>
-                <p>
+                <div class="col-md-6"></div>
+                <p class="col-md-12">
                     <input type="hidden" name="MAX_FILE_SIZE" value="5242880"/>
                     <label for='bild' style="color:#000; position: inherit;">Select Image File</label><br/>
                     <input type='file' id='bild' name='img' style="color:#000;"/>
                 </p>
             <p>
-                <input type='submit' name='butt' value='Submit' style="color:#000"/>
+                <input type='submit' class="col-md-6 submit"  name='butt' value='Submit' style="color:#000"/>
+                
             </p>
+            
         </form>
+        </div>
+        </div>
         </div>
         
         <?php 
